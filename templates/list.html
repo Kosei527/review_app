@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> List </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form action="/list-page" method="get">
+            <input id="keyword" name="keyword">
+            <input type="submit">
+        </form>
+
+        {% for row in rows %}
+            分野: {{ row.domain}}<br>
+            おさらい: {{ row.recap}}<br>
+            なぜ: {{row.why}}<br>
+            一般化: {{row.generalization}}<hr>
+        {% endfor %}
+    </body>
+</html>
