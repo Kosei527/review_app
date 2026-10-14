@@ -4,6 +4,7 @@ import sqlite3
 from datetime import datetime
 from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
@@ -45,7 +46,7 @@ def save(domain: str = Form(), recap: str = Form(), why: str = Form(), generaliz
     )
     conn.commit()
     conn.close()
-    return {"result": "saved"}
+    return RedirectResponse(url="/list-page", status_code=303)
 #HTMLフォームはフォームエンコード形式で送るので、JSON前提のPydanticモデルではなく、Form()で受け取る
 
 @app.get("/list")
