@@ -34,7 +34,7 @@ init_db() #()このかっこがつくことが実行の合図
 
 @app.get("/")
 def top():
-    return {"message": "hello"}
+    return RedirectResponse(url="/save-form")
 
 @app.post("/save")
 def save(domain: str = Form(), recap: str = Form(), why: str = Form(), generalization: str = Form()): #引数を一つだけでなく、四つに分けることでフォームエンコード形式に対応させる
