@@ -2,6 +2,7 @@
 <html>
     <head>
         <title> List </title>
+        <link rel="stylesheet" href="/static/style.css">
         <meta charset="UTF-8">
     </head>
     <body>
@@ -13,10 +14,12 @@
         </form>
 
         {% for row in rows %}
-            分野: {{ row.domain}}<br>
-            おさらい: {{ row.recap}}<br>
-            なぜ: {{row.why}}<br>
-            一般化: {{row.generalization}}<hr>
+            <div class="card">
+                分野: {{ row.domain}}<br>
+                おさらい: {{ row.recap}}<br>
+                なぜ: {{row.why}}<br>
+                一般化: {{row.generalization}}
+            </div>
         {% endfor %}
     </body>
 </html>
